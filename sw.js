@@ -1,5 +1,4 @@
-"use strict";
-self.addEventListener('notificationclick', (event) => {
+self.addEventListener('notificationclick', event => {
     const notification = event.notification;
     event.waitUntil(clients.matchAll().then(clis => {
         const client = clis.find(cli => {

@@ -1,4 +1,7 @@
-self.addEventListener('notificationclick', (event: NotificationEvent) => {
+export declare var self: ServiceWorkerGlobalScope;
+export declare var clients: Clients;
+
+self.addEventListener('notificationclick', event => {
     const notification = event.notification
 
     event.waitUntil(
@@ -39,8 +42,3 @@ self.addEventListener('push', event => {
         self.registration.showNotification(data.title, options)
     )
 })
-
-interface NotificationEvent extends ExtendableEvent {
-    readonly action: string;
-    readonly notification: Notification;
-}
