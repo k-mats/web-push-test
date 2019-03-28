@@ -31,4 +31,4 @@ self.addEventListener('push', event => {
     console.log(options.data.url);
     event.waitUntil(self.registration.showNotification(data.title, options));
 });
-//# sourceMappingURL=sw.js.map
+//# sourceMappingURL=index.js.map
