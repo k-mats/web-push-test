@@ -5,7 +5,7 @@
   "description": "web push test",
   "main": "sw.js",
   "scripts": {
-    "build": "npm-run-all --parallel build:**",
+    "build": "npm-run-all -c --parallel build:**",
     "build:browser": "tsc -p browser/tsconfig.json",
     "build:sw": "tsc -p sw/tsconfig.json",
     "start": "http-server",
