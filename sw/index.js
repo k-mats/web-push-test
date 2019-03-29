@@ -1,23 +1,28 @@
-self.addEventListener('notificationclick', event => {
+"use strict";
+self.addEventListener("notificationclick", (event) => {
     const notification = event.notification;
-    event.waitUntil(clients.matchAll().then(clis => {
-        const client = clis.find(cli => {
-            return cli.visibilityState === 'visible';
-        });
+    event.waitUntil(self.clients.matchAll().then(clis => {
+        const client = clis.find(cli => cli &&
+            cli instanceof WindowClient &&
+            cli.visibilityState === "visible");
         const url = notification.data.url;
-        if (client !== undefined) {
+        if (client instanceof WindowClient) {
             client.navigate(url);
             client.focus();
         }
         else {
-            clients.openWindow(url);
+            self.clients.openWindow(url);
         }
         notification.close();
     }));
 });
-self.addEventListener('push', event => {
-    console.log('Push Notification received', event);
-    let data = { title: 'New!', contnet: 'Something new happend!', url: 'https://google.com' };
+self.addEventListener("push", (event) => {
+    console.log("Push Notification received", event);
+    let data = {
+        title: "New!",
+        content: "Something new happend!",
+        url: "https://google.com"
+    };
     if (event.data) {
         data = JSON.parse(event.data.text());
     }

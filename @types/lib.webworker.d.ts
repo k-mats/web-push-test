@@ -13,8 +13,6 @@ See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
 ***************************************************************************** */
 
-/// <reference no-default-lib="true"/>
-
 /////////////////////////////
 /// Worker APIs
 /////////////////////////////
@@ -874,7 +872,9 @@ declare var Client: {
 interface Clients {
   claim(): Promise<void>;
   get(id: string): Promise<any>;
-  matchAll(options?: ClientQueryOptions): Promise<ReadonlyArray<Client>>;
+  matchAll(
+    options?: ClientQueryOptions
+  ): Promise<ReadonlyArray<Client | WindowClient>>;
   openWindow(url: string): Promise<WindowClient | null>;
 }
 
