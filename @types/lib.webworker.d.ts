@@ -5569,7 +5569,6 @@ declare var onerror:
   | ((this: DedicatedWorkerGlobalScope, ev: ErrorEvent) => any)
   | null;
 declare var performance: Performance;
-declare var self: WorkerGlobalScope;
 declare function msWriteProfilerMark(profilerMarkName: string): void;
 /**
  * Dispatches a synthetic event event to target and returns true
