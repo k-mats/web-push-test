@@ -1,6 +1,6 @@
 "use strict";
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(() => {
+    navigator.serviceWorker.register('sw/index.js').then(() => {
         console.log('Service worker registered!');
     }).catch(error => {
         console.log(error);
